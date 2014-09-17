@@ -1,4 +1,5 @@
 package internal
+// Modified by Sarah Gilkinson
 
 /**
  * the loop body should execute 10 times and print:
@@ -10,7 +11,14 @@ package internal
  */
 object LoopUntil extends App {
 
-  // define the new control-flow structure here
+  // loop_until
+  // Takes in a boolean as a first parameter
+  // Takes block to be executed as second parameter
+  // To have x and block evaluated each time, use => between name and type
+  def loop_until (x: => Boolean)(block: => Unit) :Unit  = {
+    while (!x) {block}
+    println("done")
+  }
 
   var i = 0
   

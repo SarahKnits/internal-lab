@@ -1,4 +1,5 @@
 package internal
+// Modified by Sarah Gilkinson
 
 /**
  * the loop body should execute 10 times and print:
@@ -11,7 +12,20 @@ package internal
 
 object WhileContinue extends App {
 
-  // define the new control-flow structures here
+  // WhileContinue
+  // Deals with exception if continue found
+  def while_c(x: => Boolean)(block: => Unit) : Unit = {
+    while (x)
+      try {
+        block
+      } catch {
+        case e: Exception => {}
+      }
+  }
+
+  // Continue
+  // Throws an exception if called
+  def continue = throw new Exception
 
   var i = -1
 
@@ -20,6 +34,5 @@ object WhileContinue extends App {
       if ( (i % 2) != 0 )
           continue
       println(i)
-  }        
-
+  }
 }
